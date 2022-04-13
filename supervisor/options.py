@@ -936,7 +936,7 @@ class ServerOptions(Options):
                 runningregex = re.compile(r'.*'+ runningregex)
             except Exception as e:
                 raise ValueError(
-                    f"program section {section} has invalid runningregex value. Error {e}")
+                    "program section %s has invalid runningregex value. Error %s" % (section, e))
             if "/dev/" in get(section, 'stdout_logfile'):
                 self.warnings.warn(
                     '\033[93m runningregex is only supported for logfiles.'
